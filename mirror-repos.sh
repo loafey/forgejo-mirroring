@@ -80,7 +80,7 @@ for line in temp/github/* ; do
             -X POST \
             -H "Authorization: token $pass" \
             -d "$body" \
-            http://mango-basket:2300/api/v1/repos/migrate > log.json
+            $forgejoURL/api/v1/repos/migrate > log.json
         
         sleep $forgejoMirrorDelay
     else
