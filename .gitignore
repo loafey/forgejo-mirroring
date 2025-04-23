@@ -1,0 +1,6 @@
+.direnv/
+temp/
+*.json
+secret
+git-secret
+mirror-secret
