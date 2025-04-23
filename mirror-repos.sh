@@ -12,6 +12,7 @@ forgejoURL=$(cat settings.json | jq ".forgejo.url" -r)
 forgejoMirrorInterval=$(cat settings.json | jq ".forgejo.mirror_interval" -r)
 forgejoMirrorDelay=$(cat settings.json | jq ".forgejo.mirror_delay" -r)
 
+rm -rf log.json
 rm -rf temp
 mkdir temp
 mkdir temp/github
@@ -80,7 +81,7 @@ for line in temp/github/* ; do
             -X POST \
             -H "Authorization: token $pass" \
             -d "$body" \
-            "$forgejoURL/api/v1/repos/migrate" > log.json
+            "$forgejoURL/api/v1/repos/migrate" >> log.json
         
         sleep $forgejoMirrorDelay
     else
